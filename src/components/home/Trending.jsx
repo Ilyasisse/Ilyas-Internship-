@@ -1,9 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import VerifiedIcon from "../../assets/verified.png";
 import TrendingCollection from "../../assets/trending-collection.avif";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function Trending() {
+
+
+
+
+  const [trending, setTrending] = useState([])
+
+  useEffect(() => {
+    async function fetchData() {
+
+      try {
+        const info = await axios.get("https://remote-internship-api-production.up.railway.app/trendingNFTs")
+        const newData = info.data.data
+        setTrending(newData,[])
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+    
+   
+    
+    fetchData()
+
+  }, [])
+
+   if(trending.length === 0){
+      return "loading"
+    }
+
+  const firstColumn = trending.slice(0,5)
+  const secondColumn = trending.slice(5,10)
+
+  
   return (
     <section id="trending">
       <div className="container">
@@ -27,23 +61,23 @@ export default function Trending() {
                 <div className="trending-column__header__price">Volume</div>
               </div>
               <div className="trending-column__body">
-                {new Array(5).fill(0).map((_, index) => (
+                {firstColumn.map((item,index) => (
                   <Link
                     to={"/collection"}
                     key={index}
                     className="trending-collection"
                   >
-                    <div className="trending-collection__rank">1</div>
+                    <div className="trending-collection__rank">{item.rank}</div>
                     <div className="trending-collection__collection">
                       <figure className="trending-collection__img__wrapper">
                         <img
-                          src={TrendingCollection}
+                          src={item.imageLink}
                           alt=""
                           className="trending-collection__img"
                         />
                       </figure>
                       <div className="trending-collection__name">
-                        Bored Ape Yacht Club
+                        {item.title}
                       </div>
                       <img
                         src={VerifiedIcon}
@@ -52,12 +86,12 @@ export default function Trending() {
                     </div>
                     <div className="trending-collection__price">
                       <span className="trending-collection__price__span">
-                        11.55 ETH
+                        {(Math.ceil(item.floor * 100 ) / 100).toFixed(2)}
                       </span>
                     </div>
                     <div className="trending-collection__volume">
                       <span className="trending-collection__volume__span">
-                        2M ETH
+                        {item.totalVolume} ETH
                       </span>
                     </div>
                   </Link>
@@ -76,23 +110,23 @@ export default function Trending() {
                 <div className="trending-column__header__price">Volume</div>
               </div>
               <div className="trending-column__body">
-                {new Array(5).fill(0).map((_, index) => (
+                {secondColumn.map((item, index) => (
                   <Link
                     to={"/collection"}
                     key={index}
                     className="trending-collection"
                   >
-                    <div className="trending-collection__rank">1</div>
+                    <div className="trending-collection__rank">{item.rank}</div>
                     <div className="trending-collection__collection">
                       <figure className="trending-collection__img__wrapper">
                         <img
-                          src={TrendingCollection}
+                          src={item.imageLink}
                           alt=""
                           className="trending-collection__img"
                         />
                       </figure>
                       <div className="trending-collection__name">
-                        Bored Ape Yacht Club
+                        {item.title}
                       </div>
                       <img
                         src={VerifiedIcon}
@@ -101,12 +135,12 @@ export default function Trending() {
                     </div>
                     <div className="trending-collection__price">
                       <span className="trending-collection__price__span">
-                        11.55 ETH
+                         {(Math.ceil(item.floor * 100 ) / 100).toFixed(2)}
                       </span>
                     </div>
                     <div className="trending-collection__volume">
                       <span className="trending-collection__volume__span">
-                        2M ETH
+                        {item.totalVolume} ETH
                       </span>
                     </div>
                   </Link>
