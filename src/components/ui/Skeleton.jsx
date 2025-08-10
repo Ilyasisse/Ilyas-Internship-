@@ -1,7 +1,7 @@
 import React from "react";
 import "./Skeleton.css";
 
-const Skeleton = ({ width, height, borderRadius }) => {
+const Skeleton = ({ width, height, borderRadius, backgroundColor }) => {
   return (
     <div
       className="skeleton"
@@ -9,6 +9,7 @@ const Skeleton = ({ width, height, borderRadius }) => {
         width,
         height,
         borderRadius,
+
       }}
     ></div>
   );

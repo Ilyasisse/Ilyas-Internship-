@@ -11,6 +11,23 @@ html {
   scroll-behavior: smooth;
 }
 
+.swiper-button-prev, .swiper-button-next {
+  background-color: #efefef;
+  width: 50px;
+  height: 50px;
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px #cccccc solid;
+  color: black;
+  font-weight: 100;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after{
+  font-size: 24px;
+}
+
 /* Generics */
 
 .disabled {
