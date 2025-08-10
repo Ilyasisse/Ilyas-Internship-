@@ -97,7 +97,7 @@ export default function NewCollections() {
                       <div className="collection__stats">
                         <div className="collection__stat">
                           <span className="collection__stat__label">Floor</span>
-                          <span className="collection__stat__data">{(Math.ceil(NFT.floor * 100) / 100).toFixed(2)} ETH</span>
+                          <span className="collection__stat__data">{(Math.floor(NFT.floor * 100) / 100).toFixed(2)} ETH</span>
                         </div>
                         <div className="collection__stat">
                           <span className="collection__stat__label">
