@@ -25,7 +25,8 @@ html {
 }
 
 .swiper-button-next::after, .swiper-button-prev::after{
-  font-size: 24px;
+  font-size: 20px;
+  color: black;
 }
 
 /* Generics */
