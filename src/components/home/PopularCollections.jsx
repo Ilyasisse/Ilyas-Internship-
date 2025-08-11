@@ -19,7 +19,6 @@ export default function PopularCollections() {
     async function FetchData() {
       const info = await axios.get("https://remote-internship-api-production.up.railway.app/popularCollections")
       const newData = info.data.data
-      console.log(newData)
       setPopularCollections(newData)
     }
 
