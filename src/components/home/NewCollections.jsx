@@ -86,7 +86,7 @@ export default function NewCollections() {
               ))
             : newCollections.map((NFT, index) => (
                 <SwiperSlide key={index}>
-                  <Link to="/collection" className="collection">
+                  <Link to={`/collection/${NFT.collectionId}`} className="collection">
                     <img
                       src={NFT.imageLink}
                       alt=""

@@ -90,7 +90,7 @@ export default function Trending() {
                   ))
                   : firstColumn.map((item, index) => (
                     <Link
-                      to={"/collection"}
+                      to={`/collection/${item.collectionId}`}
                       key={index}
                       className="trending-collection"
                     >
@@ -172,7 +172,7 @@ export default function Trending() {
                   : (
                     secondColumn.map((item, index) => (
                       <Link
-                        to={"/collection"}
+                        to={`/collection/${item.collectionId}`}
                         key={index}
                         className="trending-collection"
                       >

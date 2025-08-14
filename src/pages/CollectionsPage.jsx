@@ -55,7 +55,7 @@ export default function CollectionsPage() {
           ))
             : CollectionsPage.slice(0, CollectionAmount).map((NFT, index) => (
               <div className="collection-column">
-                <Link to="/collection" key={index} className="collection">
+                <Link to={`/collection/${NFT.id}`} key={index} className="collection">
                   <img
                     src={NFT.imageLink}
                     alt=""
