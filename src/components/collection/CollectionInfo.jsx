@@ -15,7 +15,6 @@ export default function CollectionInfo() {
       const info = await axios.get(`https://remote-internship-api-production.up.railway.app/collection/${id}`)
       const newData = info.data.data
       setCollectionInfo(newData)
-      console.log(newData)
     }
     FetchData()
   }, [])

@@ -13,15 +13,9 @@ export default function SelectedCollection() {
 
 
     async function fetchData() {
-      try {
         const response = await axios.get("https://remote-internship-api-production.up.railway.app/selectedCollection")
         const newData = response.data.data
-        setSelectedCollection(newData)
-      }
-      catch (error) {
-        console.log("Error Ecthcing Selcted Collection", error)
-      }
-
+        setSelectedCollection(newData)        
     }
 
     fetchData()
