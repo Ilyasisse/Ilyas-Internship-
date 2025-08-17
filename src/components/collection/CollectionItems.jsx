@@ -27,6 +27,8 @@ export default function CollectionItems() {
     FetchData()
   },[])
 
+
+
   function sortNFT(){
     if(sort === "HIGH__TO__LOW"){
       setCollectionItem(CollectionItem.slice().sort((a,b) => b.price - a.price))
@@ -35,6 +37,7 @@ export default function CollectionItems() {
       setCollectionItem(CollectionItem.slice().sort((a,b) => a.price - b.price))
     }
   }
+
 
   useEffect(() => {
     sortNFT()
@@ -109,7 +112,7 @@ export default function CollectionItems() {
         <div className="collection-items__body">
           {CollectionItem.slice(0,NFTamount).map((NFT, index) => (
             <div className="item-column">
-              <Link to={"/item"} key={index} className="item">
+              <Link to={`/item/${NFT.itemId}`} key={index} className="item">
                 <figure className="item__img__wrapper">
                   <img
                     src={NFT.imageLink}

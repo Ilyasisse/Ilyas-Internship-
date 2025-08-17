@@ -14,15 +14,9 @@ export default function Trending() {
 
   useEffect(() => {
     async function fetchData() {
-
-      try {
         const info = await axios.get("https://remote-internship-api-production.up.railway.app/trendingNFTs")
         const newData = info.data.data
         setTrending(newData, [])
-      }
-      catch (error) {
-        console.log(error)
-      }
     }
 
 
