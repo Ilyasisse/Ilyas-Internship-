@@ -14,12 +14,14 @@ export default function ItemPage() {
   const [itemCollection, setItemCollection] = useState({});
   const [endTime, setEndTime] = useState(0);      
   const [timeLeft, setTimeLeft] = useState(0);    
+  const [loading , setLoading] = useState(true)
 
   const pad2 = (n) => String(n).padStart(2, "0");
 
   
   useEffect(() => {
     async function fetchData() {
+      setLoading(true)
       const res = await axios.get(`https://remote-internship-api-production.up.railway.app/item/${id}`);
       const data = res.data.data || {};
       setItemCollection(data);
@@ -28,10 +30,11 @@ export default function ItemPage() {
       const end = new Date(data.expiryDate).getTime(); 
       setEndTime(end);
       setTimeLeft(Math.max(0, end - Date.now()));
+      setLoading(false)
     }
     fetchData();
   }, [id]);
-
+  
   
   useEffect(() => {
     if (!endTime) return;
