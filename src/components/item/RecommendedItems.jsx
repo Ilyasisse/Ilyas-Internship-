@@ -62,7 +62,7 @@ export default function RecommendedItems({ collectionId, currentItemId }) {
             >
               {recommendedItemsInfo.length === 0
               ? new Array(9).fill(0).map((_,i) => (
-                <SwiperSlide>
+                <SwiperSlide key={`skeleton ${i} `}>
                   <figure className="item__img__wrapper">
                     <Skeleton width="100%" height="100%" borderRadius={4}/>
                   </figure>
@@ -81,8 +81,8 @@ export default function RecommendedItems({ collectionId, currentItemId }) {
               ))
               
               :filtered.slice(0, 10).map((recommendedItemsInfo, index) => (
-               <SwiperSlide>
-                  <Link to={`/item/${recommendedItemsInfo.itemId}`} key={index}  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="item">
+               <SwiperSlide key={index}>
+                  <Link to={`/item/${recommendedItemsInfo.itemId}`}   onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="item">
                     <figure className="item__img__wrapper">
                       <img
                         src={recommendedItemsInfo.imageLink}

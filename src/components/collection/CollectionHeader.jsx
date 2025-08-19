@@ -44,7 +44,7 @@ export default function CollectionHeader() {
               className="collection-header__img"
             />
             <div className="collection-header__name">{CollectionHeader.title}</div>
-            <Link to={'/user'} className="collection-header__author">{CollectionHeader.creator}</Link>
+            <Link to={`/user/${CollectionHeader.creatorId}`} className="collection-header__author">{CollectionHeader.creator}</Link>
           </div>
           <div className="collection-header__right">
             <div className="collection-header__columns">
@@ -74,7 +74,7 @@ export default function CollectionHeader() {
               </div>
               <div className="collection-header__column">
                 <span className="collection-header__column__data">
-                  <span className="semibold">{CollectionHeader.listed}</span>
+                  <span className="semibold">{CollectionHeader.listed} %</span>
                 </span>
                 <span className="collection-header__column__label">Listed</span>
               </div>
