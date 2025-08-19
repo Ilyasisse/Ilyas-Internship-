@@ -2,6 +2,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Aos from "aos";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -33,7 +34,7 @@ export default function NewCollections() {
 
 
   return (
-    <section id="new-collections">
+    <section id="new-collections" data-aos="fade-up">
       <div className="container">
         <div className="row">
           <h2 className="new-collections__title">New Collections</h2>

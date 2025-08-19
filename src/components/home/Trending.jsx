@@ -4,6 +4,7 @@ import TrendingCollection from "../../assets/trending-collection.avif";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "../ui/Skeleton"
+import Aos from "aos";
 
 export default function Trending() {
 
@@ -32,7 +33,7 @@ export default function Trending() {
 
 
   return (
-    <section id="trending">
+    <section id="trending" data-aos="fade-up">
       <div className="container">
         <div className="row trending__row">
           <div className="trending__header">
