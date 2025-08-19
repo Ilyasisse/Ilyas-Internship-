@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Aos from "aos";
 
 
 import { Navigation, Pagination } from "swiper/modules";
@@ -27,7 +28,7 @@ export default function PopularCollections() {
 
 
   return (
-    <section id="popular-collections">
+    <section id="popular-collections" data-aos="fade-up">
       <div className="container">
         <div className="row">
           <h2 className="popular-collections__title">Popular Collections</h2>
