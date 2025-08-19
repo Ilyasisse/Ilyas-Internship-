@@ -43,7 +43,7 @@ export default function CollectionItems() {
     sortNFT()
   },[sort])
 
-  if(Object.keys(CollectionItem).length === 0 ){
+  if(CollectionItem.length === 0 ){
     return(
       <div className="row collection-items__row">
         <div className="collection-items__header">
@@ -61,7 +61,7 @@ export default function CollectionItems() {
         </div>
         <div className="collection-items__body">
           {[...Array(NFTamount)].map((_,i) => (
-            <div className="item-column">
+            <div className="item-column" key={i}>
               <div className="item">
                 <figure className="item__img__wrapper">
                   <Skeleton width="100%" height="100%"/>
@@ -110,9 +110,9 @@ export default function CollectionItems() {
           </select>
         </div>
         <div className="collection-items__body">
-          {CollectionItem.slice(0,NFTamount).map((NFT, index) => (
-            <div className="item-column">
-              <Link to={`/item/${NFT.itemId}`} key={index} className="item">
+          {CollectionItem.slice(0,NFTamount).map((NFT, i) => (
+            <div className="item-column" key={i}>
+              <Link to={`/item/${NFT.itemId}`}  className="item">
                 <figure className="item__img__wrapper">
                   <img
                     src={NFT.imageLink}

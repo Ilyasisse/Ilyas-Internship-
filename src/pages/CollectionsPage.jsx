@@ -26,7 +26,7 @@ export default function CollectionsPage() {
         <div className="collections__body">
           {CollectionsPage.length === 0
             ? new Array(12).fill(0).map((_, i) => (
-              <div className="collection-column">
+              <div className="collection-column" key={i}>
                 <div className="collection__img">
                   <Skeleton width="100%" height="180px" borderRadius="16px" />
                 </div>
@@ -54,8 +54,8 @@ export default function CollectionsPage() {
             </div>
           ))
             : CollectionsPage.slice(0, CollectionAmount).map((NFT, index) => (
-              <div className="collection-column">
-                <Link to={`/collection/${NFT.id}`} key={index} className="collection">
+              <div className="collection-column" key={index}>
+                <Link to={`/collection/${NFT.id}`} className="collection">
                   <img
                     src={NFT.imageLink}
                     alt=""
